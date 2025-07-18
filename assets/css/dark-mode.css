@@ -1,0 +1,110 @@
+/* Dark Mode Specific Styles */
+
+/* Body and general elements */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Cards and containers */
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .modal-content {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .table {
+    color: #e0e0e0;
+}
+
+body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Form elements */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #2d2d2d;
+    border-color: #0d6efd;
+    color: #e0e0e0;
+}
+
+/* Footer specific */
+body.dark-mode footer {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+    border-top: 1px solid #333;
+}
+
+body.dark-mode footer a {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode footer a:hover {
+    color: #ffffff !important;
+}
+
+body.dark-mode footer .text-light {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode footer hr {
+    border-color: #444 !important;
+}
+
+/* Make text and elements more visible in dark mode */
+body.dark-mode .text-muted {
+    color: #aaaaaa !important;
+}
+
+body.dark-mode .bg-light {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+}
+
+/* Alerts */
+body.dark-mode .alert-success {
+    background-color: #0d392d;
+    color: #78c97c;
+    border-color: #105c3e;
+}
+
+body.dark-mode .alert-danger {
+    background-color: #3d0d0d;
+    color: #e47c7c;
+    border-color: #5c1010;
+}
+
+body.dark-mode .alert-warning {
+    background-color: #3d3100;
+    color: #ffd966;
+    border-color: #665600;
+}
+
+body.dark-mode .alert-info {
+    background-color: #0d283d;
+    color: #7cacdf;
+    border-color: #10405c;
+}
+
+/* Buttons */
+body.dark-mode .btn-outline-secondary {
+    color: #bbb;
+    border-color: #666;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background-color: #666;
+    color: #fff;
+}
