@@ -43,11 +43,17 @@ if ($user_id) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAMS - Fixed Asset Management System</title>
+    <!-- Load local Bootstrap first -->
+    <link href="/fams/assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Fallback to CDN if local copy is unavailable -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="/fams/assets/css/style.css" rel="stylesheet">
     <link href="/fams/assets/css/profile.css" rel="stylesheet">
+    <style>
+      .navbar{position:relative;z-index:1050;}
+    </style>
     
     <?php if ($theme === 'dark'): ?>
     <link href="/fams/assets/css/dark-mode.css" rel="stylesheet">

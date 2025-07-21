@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 require_once '../includes/header.php';
 
 // Handle maintenance request status update
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['request_id'], $_POST['status'])) {
     $request_id = intval($_POST['request_id']);
     $status = $_POST['status'];
     $stmt = $pdo->prepare('UPDATE maintenance_requests SET status = ? WHERE request_id = ?');
@@ -32,12 +32,12 @@ if (isset($error)) {
     echo '<div class="alert alert-danger">' . htmlspecialchars($error) . '</div>';
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Maintenance Management - Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+
+
     <style>
         body { background: #f4f6fa; }
         .maintenance-container { max-width: 1200px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 32px; }
@@ -51,8 +51,8 @@ if (isset($error)) {
         .badge-in-progress { background-color: #007bff; color: #fff; }
         .badge-completed { background-color: #28a745; color: #fff; }
     </style>
-</head>
-<body>
+
+
     <div class="maintenance-container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1>Maintenance Management</h1>
@@ -105,6 +105,6 @@ if (isset($error)) {
         </div>
     </div>
 <?php require_once '../includes/footer.php'; ?>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+
+

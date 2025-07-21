@@ -17,12 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_asset'])) {
 $stmt = $pdo->query('SELECT * FROM assets ORDER BY asset_name');
 $assets = $stmt->fetchAll();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Asset Management - Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+
+
     <style>
         body { background: #f4f6fa; }
         .asset-container { max-width: 1200px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 32px; }
@@ -30,8 +30,8 @@ $assets = $stmt->fetchAll();
         .delete-btn { color: #dc3545; text-decoration: none; }
         .delete-btn:hover { color: #c82333; }
     </style>
-</head>
-<body>
+
+
     <div class="asset-container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1>Asset Management</h1>
@@ -68,6 +68,6 @@ $assets = $stmt->fetchAll();
         </div>
     </div>
 <?php require_once '../includes/footer.php'; ?>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+
+

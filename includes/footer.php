@@ -37,6 +37,9 @@
   </div>
 </footer>
 
+<!-- Load local Bootstrap JS first -->
+<script src="/fams/assets/bootstrap/bootstrap.bundle.min.js"></script>
+<!-- Fallback to CDN if local copy is unavailable -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/fams/assets/js/main.js"></script>
 </body>

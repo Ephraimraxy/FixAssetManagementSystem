@@ -26,7 +26,9 @@ $pending_maintenance = $stmt->fetch()['pending_maintenance'];
     <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
+    <link href="/fams/assets/css/admin-dashboard.css" rel="stylesheet">
+    <!-- Removed inline styles now in external CSS -->
+<!--
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
@@ -189,14 +191,14 @@ $pending_maintenance = $stmt->fetch()['pending_maintenance'];
                 grid-template-columns: 1fr;
             }
         }
-    </style>
+    -->
 </head>
-<body>
+<body class="dashboard-page">
     <div class="dashboard-container">
         <div class="welcome">
             Welcome, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>!
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <nav class="navbar navbar-expand-lg dashboard-nav mb-4">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
                     <span class="navbar-toggler-icon"></span>
@@ -207,16 +209,16 @@ $pending_maintenance = $stmt->fetch()['pending_maintenance'];
                             <a class="nav-link active" href="dashboard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="assets.php">Assets</a>
+                            <a class="nav-link" href="assets.php"><i class="fas fa-boxes me-1"></i> Assets</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="users.php">Users</a>
+                            <a class="nav-link" href="users.php"><i class="fas fa-users me-1"></i> Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="maintenance.php">Maintenance</a>
+                            <a class="nav-link" href="maintenance.php"><i class="fas fa-tools me-1"></i> Maintenance</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="depreciation.php">Depreciation</a>
+                            <a class="nav-link" href="depreciation.php"><i class="fas fa-chart-line me-1"></i> Depreciation</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
@@ -236,57 +238,69 @@ $pending_maintenance = $stmt->fetch()['pending_maintenance'];
                 <h2><?php echo $total_assets; ?></h2>
                 <p>Total Assets</p>
             </div>
-            <div class="stat-box">
+            <div class="stat-card total-users">
                 <i class="fas fa-users"></i>
                 <h2><?php echo $total_users; ?></h2>
                 <p>Total Users</p>
             </div>
-            <div class="stat-box">
+            <div class="stat-card pending-maint">
                 <i class="fas fa-tools"></i>
                 <h2><?php echo $pending_maintenance; ?></h2>
                 <p>Pending Maintenance</p>
             </div>
         </div>
 
-        <!-- Overview Section -->
-        <div class="overview">
-            <div class="overview-card">
-                <h3>Recent Activity</h3>
-                <div class="chart">
-                    <!-- Chart will be added via JavaScript -->
-                </div>
-            </div>
-            <div class="overview-card">
-                <h3>Asset Status</h3>
-                <div class="chart">
-                    <!-- Chart will be added via JavaScript -->
-                </div>
-            </div>
-        </div>
-
         <!-- Quick Actions -->
         <div class="quick-actions">
-            <a href="assets.php" class="action-card">
+            <a href="assets.php" class="action-card add-asset">
                 <i class="fas fa-plus-circle"></i>
                 <h4>Add New Asset</h4>
             </a>
-            <a href="users.php" class="action-card">
+            <a href="users.php" class="action-card add-user">
                 <i class="fas fa-user-plus"></i>
                 <h4>Add New User</h4>
             </a>
-            <a href="maintenance.php" class="action-card">
+            <a href="maintenance.php" class="action-card maint">
                 <i class="fas fa-wrench"></i>
                 <h4>Manage Maintenance</h4>
             </a>
-            <a href="depreciation.php" class="action-card">
+            <a href="depreciation.php" class="action-card dep">
                 <i class="fas fa-chart-line"></i>
                 <h4>View Depreciation</h4>
             </a>
         </div>
-    </div>
+
+        <!-- Overview Section -->
+        <div class="overview">
+            <div class="overview-card">
+                <h3>Recent Activity</h3>
+                <canvas id="recentActivityChart"></canvas>
+            </div>
+            <div class="overview-card">
+                <h3>Asset Status</h3>
+                <canvas id="assetStatusChart"></canvas>
+            </div>
+        </div>
+
+
+
+        <!-- duplicate quick-actions start
+            <a href="assets.php" class="action-card add-asset">
+                <i class="fas fa-plus-circle"></i>
+                <h4>Add New Asset</h4>
+            </a>
+            <a href="users.php" class="action-card add-user">
+                <i class="fas fa-user-plus"></i>
+                <h4>Add New User</h4>
+            </a>
+            
+                <i class="fas fa-wrench"></i>
+                <h4>Manage Maintenance</h4>
+            </a>
+--> 
 <?php  ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="dashboard.js"></script>
+    <script src="/fams/assets/js/dashboard.js"></script>
 </body>
 </html>
